@@ -1,0 +1,101 @@
+{
+  "name": "webgpu-canary",
+  "version": "0.1.0",
+  "description": "Choose the device and dtype that give correct answers on this machine for transformers.js in the browser, by checking real output against a baseline.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "transformers.js",
+    "webgpu",
+    "onnx",
+    "wasm",
+    "quantization",
+    "fallback",
+    "on-device",
+    "embeddings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeGyeongPil/webgpu-canary.git"
+  },
+  "homepage": "https://github.com/LeeGyeongPil/webgpu-canary#readme",
+  "bugs": {
+    "url": "https://github.com/LeeGyeongPil/webgpu-canary/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "webgpu-canary": "dist/cli/bin.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./transformers": {
+      "types": "./dist/transformers/index.d.ts",
+      "import": "./dist/transformers/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "fixtures",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "example:mock": "npm run build --silent && node examples/mock-select.mjs --lang en",
+    "example:node": "npm run build --silent && node examples/node-real.mjs --lang en",
+    "record-fixtures": "npm run build --silent && node scripts/record-fixtures.mjs",
+    "check:package": "npm run build --silent && node scripts/check-package.mjs",
+    "demo:dev": "vite --config demo/vite.config.ts",
+    "demo:build": "vite build --config demo/vite.config.ts",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "peerDependencies": {
+    "@huggingface/transformers": "^4.3.2",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "@huggingface/transformers": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "^4.3.2",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^31.0.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

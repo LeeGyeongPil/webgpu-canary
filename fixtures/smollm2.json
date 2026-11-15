@@ -1,0 +1,53 @@
+{
+ "note": "Recorded on Node cpu with transformers.js; healthy reference values for the mock mode.",
+ "modelId": "HuggingFaceTB/SmolLM2-135M-Instruct",
+ "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+ "task": "text-generation",
+ "input": "What is the capital of France? Answer in one word.",
+ "maxNewTokens": 12,
+ "libVersion": "4.3.2",
+ "recordedAt": "2026-11-15",
+ "device": "cpu",
+ "tokens": {
+  "fp32": [
+   504,
+   3575,
+   282,
+   4649,
+   314,
+   7042,
+   30,
+   2
+  ],
+  "fp16": [
+   504,
+   3575,
+   282,
+   4649,
+   314,
+   7042,
+   30,
+   2
+  ],
+  "q4": [
+   504,
+   3575,
+   282,
+   4649,
+   314,
+   7042,
+   30,
+   2
+  ],
+  "q4f16": [
+   504,
+   3575,
+   282,
+   4649,
+   314,
+   7042,
+   30,
+   2
+  ]
+ }
+}
